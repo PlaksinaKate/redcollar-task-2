@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <section class="welcome">
+    <div class="wr">
+      <h1 class="welcome__title center">Добро пожаловать в игру "Крестики-нолики"</h1>
+      <h2 class="welcome__subtitle center">Введите имя игроков</h2>
+      <div class="welcome__inputs flex no-wrap">
+        <div class="welcome__input">
+          <input type="text" placeholder="Игрок №1">
+        </div>
+        <div class="welcome__input">
+          <input type="text" placeholder="Игрок №2">
+        </div>
+      </div>
+      <div class="welcome__who-start">
+        <h2 class="welcome__subtitle center welcome__who-start-title">Кто начинает первым?</h2>
+        <div class="welcome__who-start-radio">
+          <input type="radio" name="radio" id="user-1" value="1" checked >
+          <label for="user-1">Игрок №1</label>
+        </div>
+        <div class="welcome__who-start-radio">
+          <input type="radio" name="radio" id="user-2" value="2" >
+          <label for="user-2">Игрок №2</label>
+        </div>
+      </div>
+      <div class="welcome__start-game-wr center">
+        <button class="welcome__start-game" onclick="startGame()">Начать игру</button>
+        <div class="welcome__start-game-error hidden">Пожалуйста, введите имена игроков</div>
+      </div>
+    </div>
+  </section>
+  <script src="js/start-game.js"></script>
+</body>
+
+</html>

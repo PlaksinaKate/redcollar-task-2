@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <section class="tic-tac-toe">
+    <div class="wr">
+      <div class="tic-tac-toe__wr flex">
+        <div class="tic-tac-toe__board flex wrap">
+          <div class="tic-tac-toe__board-item" data-active=""></div>
+          <div class="tic-tac-toe__board-item" data-active=""></div>
+          <div class="tic-tac-toe__board-item" data-active=""></div>
+          <div class="tic-tac-toe__board-item" data-active=""></div>
+          <div class="tic-tac-toe__board-item" data-active=""></div>
+          <div class="tic-tac-toe__board-item" data-active=""></div>
+          <div class="tic-tac-toe__board-item" data-active=""></div>
+          <div class="tic-tac-toe__board-item" data-active=""></div>
+          <div class="tic-tac-toe__board-item" data-active=""></div>
+        </div>
+        <div class="tic-tac-toe__for-users">
+          <div class="tic-tac-toe__for-users-text">Первым ходит:</div>
+          <div class="tic-tac-toe__for-users-board-title hidden">Подсказка</div>
+          <div class="tic-tac-toe__for-users-board flex wrap hidden">
+            <div class="tic-tac-toe__for-users-board-item" data-active="" data-activehelp=""></div>
+            <div class="tic-tac-toe__for-users-board-item" data-active="" data-activehelp=""></div>
+            <div class="tic-tac-toe__for-users-board-item" data-active="" data-activehelp=""></div>
+            <div class="tic-tac-toe__for-users-board-item" data-active="" data-activehelp=""></div>
+            <div class="tic-tac-toe__for-users-board-item" data-active="" data-activehelp=""></div>
+            <div class="tic-tac-toe__for-users-board-item" data-active="" data-activehelp=""></div>
+            <div class="tic-tac-toe__for-users-board-item" data-active="" data-activehelp=""></div>
+            <div class="tic-tac-toe__for-users-board-item" data-active="" data-activehelp=""></div>
+            <div class="tic-tac-toe__for-users-board-item" data-active="" data-activehelp=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="popup hidden">
+    <div class="popup__wr">
+      <h3 class="popup__title"></h3>
+      <div class="popup__img">
+        <img src="public/img/smile-cat.jpeg" alt="">
+      </div>
+    </div>
+  </div>
+  <script type="module" src="js/game.js"></script>
+</body>
+
+</html>
