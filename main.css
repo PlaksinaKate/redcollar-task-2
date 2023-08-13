@@ -805,8 +805,7 @@ h4 {
     margin: unset;
   }
 
-  .tic-tac-toe__board-item,
-  .tic-tac-toe__for-users-board-item {
+  .tic-tac-toe__board-item {
     width: 5.5rem;
     height: 5.5rem;
   }
@@ -814,5 +813,19 @@ h4 {
   .tic-tac-toe__board-item.tic-tac-toe__board-item_active-x,
   .tic-tac-toe__board-item.tic-tac-toe__board-item_active-o {
     background-size: 3.125rem;
+  }
+
+  .tic-tac-toe__for-users-board {
+    max-width: 11.75rem;
+  }
+
+  .tic-tac-toe__for-users-board-item {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .tic-tac-toe__for-users-board-item.tic-tac-toe__for-users-board-item_active-o,
+  .tic-tac-toe__for-users-board-item.tic-tac-toe__for-users-board-item_active-x {
+    background-size: 2rem;
   }
 }
