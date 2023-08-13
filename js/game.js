@@ -17,7 +17,7 @@ let xOrO = 'o'
 
 for (let i = 0; i < boardItems.length; i++) {
   boardItems[i].addEventListener('click', () => {
-    deleteHelpMove(xOrO, boardItems[i])
+    deleteHelpMove(xOrO)
 
     boardItems[i].classList.add(`tic-tac-toe__board-item_active-${xOrO}`);
     boardItems[i].setAttribute("data-active", `${stage % 2 ? 'o' : 'x'}`);
@@ -27,7 +27,7 @@ for (let i = 0; i < boardItems.length; i++) {
 
 
     if (isGameEnd(xOrO)) {
-      popupTitle.innerHTML = `${whoMove} выиграл! Поздравляем!`
+      popupTitle.innerHTML = `Пользователь с именем ${whoMove} выиграл! Поздравляем!`
       popup.classList.remove('hidden')
     } else if (isNobodyWin()) {
       popupTitle.innerHTML = `Ничья!`
@@ -35,9 +35,15 @@ for (let i = 0; i < boardItems.length; i++) {
     } else {
       stage++;
       xOrO = stage % 2 ? 'o' : 'x';
-      checkWin(xOrO)
-      whoMove = stage % 2 === 0 ? user2 : user1
+
+      if (whoStart === user1) {
+        whoMove = stage % 2 === 0 ? user2 : user1
+      } else {
+        whoMove = stage % 2 === 0 ? user1 : user2
+      }
+
       forUsers.innerHTML = `Сейчас ходит: ${whoMove}`
+      checkWin(xOrO)
     }
 
   })
@@ -65,8 +71,8 @@ const checkWin = (xOrO) => {
   for (let i = 0; i < checkWinVars.length; i++) {
     const row = checkWinVars[i]
     if (
-      (getDataActive(helpBoardItems[row[0]]) == 'x' && getDataActive(helpBoardItems[row[1]]) == 'x' && !boardItems[row[2]].classList.contains(`tic-tac-toe__board-item_active-o`)) ||
-      (getDataActive(helpBoardItems[row[0]]) == 'o' && getDataActive(helpBoardItems[row[1]]) == 'o' && !boardItems[row[2]].classList.contains(`tic-tac-toe__board-item_active-x`))
+      ((getDataActive(helpBoardItems[row[0]]) == 'x' && getDataActive(helpBoardItems[row[1]]) == 'x') ||
+      (getDataActive(helpBoardItems[row[0]]) == 'o' && getDataActive(helpBoardItems[row[1]]) == 'o')) && getDataActive(boardItems[row[2]]) === ''
     ) {
       setHelpMove(helpBoardItems[row[2]])
       helpBoardTitle.classList.remove('hidden')
@@ -85,12 +91,14 @@ const setHelpMove = (el) => {
   el.setAttribute("data-activehelp", `1`);
 }
 
-const deleteHelpMove = (xOrO, elBoard) => {
+const deleteHelpMove = (xOrO) => {
   helpBoardTitle.classList.add('hidden')
   helpBoard.classList.add('hidden')
 
-  const helpBoardItem = document.querySelector('[data-activehelp="1"]')
-  helpBoardItem?.classList.remove(`tic-tac-toe__for-users-board-item_active-${xOrO}`);
-  helpBoardItem?.classList.remove(`tic-tac-toe__for-users-board-item_active-help`);
-  helpBoardItem?.setAttribute("data-activehelp", `0`);
+  const helpBoardItemsData = document.querySelectorAll('[data-activehelp="1"]')
+  for(let i=0; i<helpBoardItemsData.length;i++){
+    helpBoardItemsData[i].classList.remove(`tic-tac-toe__for-users-board-item_active-${xOrO}`);
+    helpBoardItemsData[i].classList.remove(`tic-tac-toe__for-users-board-item_active-help`);
+    helpBoardItemsData[i].setAttribute("data-activehelp", `0`);
+  }
 }
